@@ -1,3 +1,33 @@
 {{!-- Setup the `index.handlebars` to have the template that Handlebars can render onto. --}}
+ <container>
+      <aside>
+          <ul id="order">
+            <div class="btnli">
+              {{#each btnli}}
+              <li>{{this}}</li>
+              <button class="eat">Eat</button></div>
+            {{/each}}
+          </ul>
+        </aside>
+        <div id="right">
+            <ul>
+              {{#each eat}}
+              <li>{{this}}</li>
+              {{/each}}
+            </ul>
+        </div>
+      <section>
+          <div class="imgdiv"><img src="./assets/img/burger.png"></div>
+          <h3>Build Your Own Burger</h3>
+          <form>
+            <textarea type="text" rows= 3 type="textarea" id="burgerContainer" placeholder="Click here to create your burger ..."></textarea>
+              <button type="submit" class="order" id="orderBurger">Order Burger </button>
+          </form>
+        </section>
+        
+          
+         <div style="clear:both;"></div>
+          
+  </container>
 
 {{!-- Create a button in `index.handlebars` that will submit the user input into the database. --}}
