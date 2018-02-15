@@ -1,25 +1,27 @@
 *{
       background-color:#DEDCCE;
+      font-size:14px;
+      
 }
 container{
-      width:100%;
+  width: 100%;
 }
 section{
   margin:0 auto;
   text-align:center;
-  width: 50%;
+  max-width:950px;
 }
 aside{
   float:left;
   padding-left:10px;
   margin-top:175px;
-  width:25%;
+  width:275px;
 }
 #right{
   margin-top:175px;
   padding-right:15px;
   float:right;
-  width:25%;
+  width:275px;
 }
 h3 {
   margin: 0;
@@ -38,6 +40,7 @@ textarea {
   font-family: Lora,serif;
   font-weight: 400;
   font-style: normal;
+  padding: 5px;
 }
 input[type=text]{
   display: inline-block;
@@ -66,6 +69,7 @@ form .order{
   border-radius: 3px;
   color: #ffffff;
   padding: 7px 10px;
+  margin-top:10px;
   letter-spacing: 0.08em;
   width:150px;
   background-color:#91AE78;
@@ -77,7 +81,7 @@ ul{
   padding: 0;
 }
 li{
-  border: 1px solid #E49957;
+  border-bottom: 1px solid #E49957;
   padding: 10px;
   margin-bottom:5px;
 }
@@ -88,8 +92,8 @@ li{
 .eat {
     position:absolute;
     top:0;
-    left:250px;
-    padding: 12px 16px 12px 16px;
+    left:275px;
+    padding: 7px 16px 12px 16px;
 }
 
 .eat:hover {

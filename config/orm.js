@@ -31,7 +31,7 @@ function objToSql(cols) {
   return arr.toString();
 }
 var orm = {
-  selectAll: function (table_name,cb){
+  all: function (table_name,cb){
     var queryString = "SELECT * FROM " + table_name + ";";
     connection.query(queryString,function(err,result){
       if (err){
@@ -40,26 +40,26 @@ var orm = {
       cb(result);
     });
   },
-  InsertOne: function(table_name,cols,values,cb){
-    var queryString="INSER INTO " + table;
+  insert: function(table_name,cols,values,cb){
+    var queryString="INSERT INTO " + table_name;
         queryString += " (";
         queryString += cols.toString();
         queryString += ") ";
         queryString += "VALUES (";
-        queryString += printQuestionMarks(vals.length);
+        queryString += printQuestionMarks(values.length);
         queryString += ") ";
-
+        console.log("Column names:  ",cols)
         console.log(queryString);
 
         connection.query(queryString,values,function(err,result){
           if (err){
-            console.log("Error Message:  " + err);
+            throw err
           }
           cb(result);
     });
   },
 
-  updateOne: function(table_name,cols,value,condition){
+  update: function(table_name,cols,value,condition){
         var queryString = "UPDATE " + table_name;
         queryString += " SET ";
         queryString += objToSql(cols);
