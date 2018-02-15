@@ -4,11 +4,13 @@
       <aside>
           <ul id="order">
             <div class="btnli">
-              {{#if devoured}}
+              {{#each burgers}}
+                {{#if devoured}}
               <li>{{name}}</li>
             </div>
               {{!-- <button class="eat">Eat</button></div> --}}
-            {{/if}}
+                {{/if}}
+              {{/each}}
           </ul>
         </aside>
         <div id="right">
