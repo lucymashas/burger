@@ -8,23 +8,27 @@ var burger = require("../models/burger.js");
 // Routes
 router.get("/", function(req, res) {
   burger.all(function(data) {
-    var foodObject = {
-      burger: data
-    };
-    res.render("index", foodObject);
+    res.render("index", { burger_data: data});
   });
 });
 
 router.post("/burgers", function(req, res) {
-  console.log(req.body.name);
-  burger.insert(["burger_name","devoured"],[req.body.name,true],
+  burger.insert(["burger_name","devoured"],[req.body.burger,true],
      function(result){
-        res.json({id: result.insertId});
+        //res.json({id: result.insertId});
+        res.redirect("/");
+       
   }); 
 });
 
-
-
+router.put('/burgers/:id', function(req, res) {
+  var condition = 'id = ' + req.params.id;
+  console.log(condition);
+  burger.update({devoured: false}, condition, 
+    function(data) {
+      res.redirect('/');
+  });
+});
 
 
 

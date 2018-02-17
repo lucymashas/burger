@@ -59,7 +59,8 @@ var orm = {
     });
   },
 
-  update: function(table_name,cols,value,condition){
+  update: function(table_name,cols,condition,cb){
+        console.log(cols);
         var queryString = "UPDATE " + table_name;
         queryString += " SET ";
         queryString += objToSql(cols);
@@ -71,9 +72,12 @@ var orm = {
           if (err) {
             throw err;
           }
+        cb(result);
     });
   }
 };
+
+
 
 
 
