@@ -12,9 +12,8 @@ function printQuestionMarks(num) {
 }
 
 // Helper function to convert object key/value pairs to SQL syntax
-function objToSql(cols) {
+function objToSql(ob) {
   var arr = [];
-
   // loop through the keys and push the key/value as a string int arr
   for (var key in ob) {
     var value = ob[key];
@@ -30,6 +29,7 @@ function objToSql(cols) {
   }
   return arr.toString();
 }
+
 var orm = {
   all: function (table_name,cb){
     var queryString = "SELECT * FROM " + table_name + ";";
@@ -48,9 +48,7 @@ var orm = {
         queryString += "VALUES (";
         queryString += printQuestionMarks(values.length);
         queryString += ") ";
-        console.log("Column names:  ",cols)
         console.log(queryString);
-
         connection.query(queryString,values,function(err,result){
           if (err){
             throw err
@@ -60,7 +58,6 @@ var orm = {
   },
 
   update: function(table_name,cols,condition,cb){
-        console.log(cols);
         var queryString = "UPDATE " + table_name;
         queryString += " SET ";
         queryString += objToSql(cols);
