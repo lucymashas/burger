@@ -1,4 +1,4 @@
-burger logger 
+Burger Logger 
 
 Application was develop with Node, Express and MySql. Handlebars to generate the HTML
 
